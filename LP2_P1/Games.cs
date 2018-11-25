@@ -179,5 +179,22 @@ namespace LP2_P1
             Console.WriteLine("Image url: " + PrintURL(HeaderImage));
             Console.WriteLine("Website: " + PrintURL(Website));
         }
+
+        /*
+        public static int CompareById(Games game1, Games game2)
+        {
+            return game1.ID.CompareTo(game2.ID);
+        }
+
+        public static int CompareByName(Games game1, Games game2)
+        {
+            return string.Compare(game1.Name, game2.Name);
+        }
+
+        public static int CompareByDLC(Games game1, Games game2)
+        {
+
+        }
+        */
     }
 }

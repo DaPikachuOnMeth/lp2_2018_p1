@@ -9,11 +9,8 @@ namespace LP2_P1
     class Sorting
     {
         public Render render = new Render();
-        
-    }
-
-    public void BeginSorting()
-    {
-        R
+        public void BeginSorting()
+        {
+        }
     }
 }
