@@ -37,13 +37,14 @@ namespace LP2_P1
         {
             ID = Convert.ToInt32(s[0]);
             Name = s[1];
-            releaseDate = Convert.ToDateTime(s[3]);
-            RequiredAge = Convert.ToInt32(s[4]);
-            DLCCount = Convert.ToInt32(s[5]);
-            Metacritic = Convert.ToInt32(s[6]);
-            MovieCount = Convert.ToInt32(s[7]);
-            RecommendationCount = Convert.ToInt32(s[8]);
-            ScreenshotCount = Convert.ToInt32(s[9]);
+            releaseDate = ReleaseDate(s[2]);
+            RequiredAge = Convert.ToInt32(s[3]);
+            DLCCount = Convert.ToInt32(s[4]);
+            Metacritic = Convert.ToInt32(s[5]);
+            MovieCount = Convert.ToInt32(s[6]);
+            RecommendationCount = Convert.ToInt32(s[7]);
+            ScreenshotCount = Convert.ToInt32(s[8]);
+            Owners = Convert.ToInt32(s[9]);
             NumberOfPlayers = Convert.ToInt32(s[10]);
             AchievementCount = Convert.ToInt32(s[11]);
             ControllerSupport = Convert.ToBoolean(s[12]);

@@ -8,7 +8,7 @@ namespace LP2_P1
     {
         public Dictionary<int, Games> games;
         public FileManager file;
-        public List<Games> gamesList;
+        public List<Games> gamesList = new List<Games>() ;
         public Library(FileManager file)
         {
             this.file = file;
@@ -24,7 +24,10 @@ namespace LP2_P1
                 string[] s = file.SplitLine(file.list[i]);
                 Games game = new Games(s);
 
-                lib.Add(game.GetID(), game);
+                if (lib.TryGetValue(game.GetID(), out Games gm) == false)
+                {
+                    lib.Add(game.GetID(), game);
+                }
             }
             return lib;
         }

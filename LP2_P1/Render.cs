@@ -6,7 +6,7 @@ namespace LP2_P1
     {
         public Render() { }
 
-        public string[] val = new string[15] { " ", " ", " ", " ", " ", " ",
+        public string[] val = new string[] { " ", " ", " ", " ", " ", " ",
                                                   " ", " ", " ", " ", " ", " ",
                                                                   " "," "," "};
 
@@ -49,7 +49,7 @@ namespace LP2_P1
             Console.WriteLine("Selected methods: {1} {2} {3} {4} {5} {6} {7} " +
                               "{8} {9} {10} {11} {12} {13} {14}", val[0],
                               val[1], val[2], val[3], val[4], val[5], val[6],
-                              val[7], val[8], val[9], val[10], val[11], val[12], val[13]);
+                              val[7], val[8], val[9], val[10], val[11], val[12], val[13], val[14]);
 
             Console.WriteLine("Search by: ");
             Console.WriteLine("1: Name");
@@ -76,10 +76,12 @@ namespace LP2_P1
                     Console.Clear();
                     MainMenu();
                     break;
+
                 case 1:
                     Console.Clear();
                     Console.WriteLine("Insert name: ");
                     val[0] = Console.ReadLine();
+                    SearchBy();
                     break;
 
                 case 2:
@@ -171,6 +173,10 @@ namespace LP2_P1
         //Prints Sorting menu
         public void SortBy()
         {
+            Console.WriteLine("Selected methods: {0}, " + val[0], val[1], val[2],
+                                  val[3], val[4], val[5], val[6], val[7], val[8],
+                                  val[9], val[10]);
+
             Console.WriteLine("Sort by: ");
             Console.WriteLine("1: ID");
             Console.WriteLine("2: Name");
@@ -181,10 +187,14 @@ namespace LP2_P1
             Console.WriteLine("7: Nº of owner");
             Console.WriteLine("8: Player count");
             Console.WriteLine("9: Achievment count");
+            Console.WriteLine("10: Clear");
+            Console.WriteLine("11: Results");
             Console.WriteLine("0: Return");
 
 
             int input = Convert.ToInt32(Console.ReadLine());
+
+            
 
             switch (input)
             {
@@ -196,55 +206,79 @@ namespace LP2_P1
                 case 1:
                     Console.Clear();
                     Console.WriteLine("By ID: ");
-                    val[1] = Console.ReadLine();
+                    val[0] = Console.ReadLine();
+                    SortBy();
                     break;
 
                 case 2:
                     Console.Clear();
                     Console.WriteLine("By Name: ");
-                    val[2] = Console.ReadLine();
+                    val[1] = Console.ReadLine();
+                    SortBy();
                     break;
 
                 case 3:
                     Console.Clear();
                     Console.WriteLine("By release date: ");
-                    val[3] = Console.ReadLine();
+                    val[2] = Console.ReadLine();
+                    SortBy();
                     break;
 
                 case 4:
                     Console.Clear();
                     Console.WriteLine("By Metacritic score: ");
-                    val[4] = Console.ReadLine();
+                    val[3] = Console.ReadLine();
+                    SortBy();
                     break;
 
                 case 5:
                     Console.Clear();
                     Console.WriteLine("By DLC count: ");
-                    val[5] = Console.ReadLine();
+                    val[4] = Console.ReadLine();
+                    SortBy();
                     break;
 
                 case 6:
                     Console.Clear();
                     Console.WriteLine("By recommendation count: ");
-                    val[6] = Console.ReadLine();
+                    val[5] = Console.ReadLine();
+                    SortBy();
                     break;
 
                 case 7:
                     Console.Clear();
                     Console.WriteLine("By nº of players: ");
-                    val[7] = Console.ReadLine();
+                    val[6] = Console.ReadLine();
+                    SortBy();
                     break;
 
                 case 8:
                     Console.Clear();
                     Console.WriteLine("By player count: ");
-                    val[8] = Console.ReadLine();
+                    val[7] = Console.ReadLine();
+                    SortBy();
                     break;
 
                 case 9:
                     Console.Clear();
                     Console.WriteLine("By achievment count: ");
+                    val[8] = Console.ReadLine();
+                    SortBy();
+                    break;
+
+                case 10:
+                    Console.Clear();
+                    Console.WriteLine("Clear");
                     val[9] = Console.ReadLine();
+                    Array.Clear(val, 0, val.Length);
+                    SortBy();
+                    break;
+
+                case 11:
+                    Console.Clear();
+                    Console.WriteLine("Big search");
+                    val[10] = Console.ReadLine();
+                    SortBy();
                     break;
             }
         }
