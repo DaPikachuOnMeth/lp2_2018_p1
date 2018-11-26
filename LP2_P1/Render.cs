@@ -4,12 +4,32 @@ namespace LP2_P1
 {
     class Render
     {
+        /// <summary>
+        /// Initializes all of the required variables for this class.
+        /// </summary>
         public Render() { }
 
+        string inbetween;
+        int metacritic;
+        int age;
+        int recommendation;
+        bool controller;
+        bool windows;
+        bool linux;
+        bool mac;
+        bool sp;
+        bool mp;
+        bool mpCoop;
+        bool levelEditor;
+        bool vr;
         public string[] val = new string[] { " ", " ", " ", " ", " ", " ",
                                                   " ", " ", " ", " ", " ", " ",
-                                                                  " "," "," "};
-
+                                                                  " "," "};
+        /// <summary>
+        /// Renders and handles the Main Menu.
+        /// Central function for the UI interface.
+        /// </summary>
+        /// <returns></returns>
         public int MainMenu()
         {
             Console.WriteLine("Select search menthod: ");
@@ -20,7 +40,7 @@ namespace LP2_P1
 
 
             int input = Convert.ToInt32(Console.ReadLine());
-
+            Console.Clear();
             switch (input)
             {
                 case 0:
@@ -28,7 +48,7 @@ namespace LP2_P1
                     break;
 
                 case 1:
-                    SearchBy();
+                    FilterMenu();
                     break;
 
                 case 2:
@@ -42,21 +62,31 @@ namespace LP2_P1
 
             return input;
         }
-
-        //Prints Search menu
-        public void SearchBy()
+        
+        /// <summary>
+        /// Prints and handles the filter menu, allows the change of filters
+        /// for the specific search.
+        /// </summary>
+        public void FilterMenu()
         {
-            Console.WriteLine("Selected methods: {1} {2} {3} {4} {5} {6} {7} " +
-                              "{8} {9} {10} {11} {12} {13} {14}", val[0],
-                              val[1], val[2], val[3], val[4], val[5], val[6],
-                              val[7], val[8], val[9], val[10], val[11], val[12], val[13], val[14]);
 
-            Console.WriteLine("Search by: ");
+            Console.WriteLine("Selected methods: \n Name:             <{0,18}> " +
+                "Release Date:     <{1,18}> Age:              <{2,18}>" +
+                "\n Metacritic:       <{3,18}> Recommendation Nº:<{4,18}> " +
+                "\n Controller:       <{5,18}> Windows:          <{6,18}>" +
+                " Linux:            <{7,18}> \n Mac:              <{8,18}> " +
+                "Singleplayer:     <{9,18}> Multiplayer:      <{10,18}>" +
+                "\n Coop Multiplayer: <{11,18}> Level Editor:     <{12,18}> " +
+                "VR:               <{13,18}>",
+                              val[0], val[1], val[2], val[3], val[4], val[5], val[6],
+                              val[7], val[8], val[9], val[10], val[11], val[12], val[13]);
+
+            Console.WriteLine("\n \n \n Search by: ");
             Console.WriteLine("1: Name");
             Console.WriteLine("2: Release date");
             Console.WriteLine("3: Age");
             Console.WriteLine("4: Metacritic");
-            Console.WriteLine("5: Reccomendation score");
+            Console.WriteLine("5: Recommendation score");
             Console.WriteLine("6: Controller support");
             Console.WriteLine("7: Windows support");
             Console.WriteLine("8: Linux support");
@@ -68,8 +98,10 @@ namespace LP2_P1
             Console.WriteLine("14: Has VR support");
             Console.WriteLine("0: Return");
 
+
             int input = Convert.ToInt32(Console.ReadLine());
 
+            // Checks for input.
             switch (input)
             {
                 case 0:
@@ -81,96 +113,239 @@ namespace LP2_P1
                     Console.Clear();
                     Console.WriteLine("Insert name: ");
                     val[0] = Console.ReadLine();
-                    SearchBy();
+                    FilterMenu();
                     break;
 
                 case 2:
                     Console.Clear();
-                    Console.WriteLine("Insert release date: ");
-                    val[1] = Console.ReadLine();
+                    Console.WriteLine("Insert release date (Please use formating YYYY-MM-DD) : ");
+                    DateTime releaseDate;
+                    if(DateTime.TryParse(inbetween = Console.ReadLine(), out releaseDate))
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hurrah! \n \n");
+                        val[1] = inbetween;
+                    } else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Incorrect Value sending you back to menu. \n \n");
+                    }
+                    FilterMenu();
                     break;
 
                 case 3:
                     Console.Clear();
                     Console.WriteLine("Insert age: ");
-                    val[2] = Console.ReadLine();
+                    if (Int32.TryParse(inbetween = Console.ReadLine(), out age) && age >= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hurrah! \n \n");
+                        val[2] = inbetween;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Incorrect Value sending you back to menu. \n \n");
+                    }
+                    FilterMenu();
                     break;
 
                 case 4:
                     Console.Clear();
                     Console.WriteLine("Insert metacritic score: ");
-                    val[3] = Console.ReadLine();
+                    if (Int32.TryParse(inbetween = Console.ReadLine(), out metacritic)
+                        && metacritic <= 100 && metacritic >= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hurrah! \n \n");
+                        val[3] = inbetween;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Incorrect Value sending you back to menu. \n \n");
+                    }
+                    FilterMenu();
                     break;
 
                 case 5:
                     Console.Clear();
-                    Console.WriteLine("Insert reccomendation count: ");
-                    val[4] = Console.ReadLine();
+                    Console.WriteLine("Insert recommendation count: ");
+                    if (Int32.TryParse(inbetween = Console.ReadLine(), out recommendation)
+                        && recommendation >= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hurrah! \n \n");
+                        val[4] = inbetween;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Incorrect Value sending you back to menu. \n \n");
+                    }
+                    FilterMenu();
                     break;
 
                 case 6:
                     Console.Clear();
-                    Console.WriteLine("Insert controller support (1 or 0): ");
-                    val[5] = "false";
+                    Console.WriteLine("Insert controller support (true or false): ");
+                    if (bool.TryParse(inbetween = Console.ReadLine(), out controller))
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hurrah! \n \n");
+                        val[5] = inbetween;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Incorrect Value sending you back to menu. \n \n");
+                    }
+                    FilterMenu();
                     break;
 
                 case 7:
                     Console.Clear();
-                    Console.WriteLine("Has Windows support (1 or 0): ");
-                    val[6] = "false";
+                    Console.WriteLine("Has Windows support (true or false): ");
+                    if (bool.TryParse(inbetween = Console.ReadLine(), out windows))
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hurrah! \n \n");
+                        val[6] = inbetween;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Incorrect Value sending you back to menu. \n \n");
+                    }
+                    FilterMenu();
                     break;
 
                 case 8:
                     Console.Clear();
-                    Console.WriteLine("Has Linux support (1 or 0): ");
-                    val[7] = "false";
+                    Console.WriteLine("Has Linux support (true or false): ");
+                    if (bool.TryParse(inbetween = Console.ReadLine(), out linux))
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hurrah! \n \n");
+                        val[7] = inbetween;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Incorrect Value sending you back to menu. \n \n");
+                    }
+                    FilterMenu();
                     break;
 
                 case 9:
                     Console.Clear();
-                    Console.WriteLine("Has Mac support (1 or 0): ");
-                    val[8] = "false";
+                    Console.WriteLine("Has Mac support (true or false): ");
+                    if (bool.TryParse(inbetween = Console.ReadLine(), out mac))
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hurrah! \n \n");
+                        val[8] = inbetween;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Incorrect Value sending you back to menu. \n \n");
+                    }
+                    FilterMenu();
                     break;
 
                 case 10:
                     Console.Clear();
-                    Console.WriteLine("Has singleplayer (1 or 0): ");
-                    val[9] = "false";
+                    Console.WriteLine("Has singleplayer (true or false): ");
+                    if (bool.TryParse(inbetween = Console.ReadLine(), out sp))
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hurrah! \n \n");
+                        val[9] = inbetween;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Incorrect Value sending you back to menu. \n \n");
+                    }
+                    FilterMenu();
                     break;
 
                 case 11:
                     Console.Clear();
-                    Console.WriteLine("Has multiplayer (1 or 0): ");
-                    val[10] = "false";
+                    Console.WriteLine("Has multiplayer (true or false): ");
+                    if (bool.TryParse(inbetween = Console.ReadLine(), out mp))
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hurrah! \n \n");
+                        val[10] = inbetween;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Incorrect Value sending you back to menu. \n \n");
+                    }
+                    FilterMenu();
                     break;
 
                 case 12:
                     Console.Clear();
-                    Console.WriteLine("Has multiplayer coop (1 or 0): ");
-                    val[11] = "false";
+                    Console.WriteLine("Has multiplayer coop (true or false): ");
+                    if (bool.TryParse(inbetween = Console.ReadLine(), out mpCoop))
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hurrah! \n \n");
+                        val[11] = inbetween;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Incorrect Value sending you back to menu. \n \n");
+                    }
+                    FilterMenu();
                     break;
 
                 case 13:
                     Console.Clear();
-                    Console.WriteLine("Has level editor? (1 or 0): ");
-                    val[12] = "false";
+                    Console.WriteLine("Has level editor? (true or false): ");
+                    if (bool.TryParse(inbetween = Console.ReadLine(), out levelEditor))
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hurrah! \n \n");
+                        val[12] = inbetween;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Incorrect Value sending you back to menu. \n \n");
+                    }
+                    FilterMenu();
                     break;
 
                 case 14:
                     Console.Clear();
-                    Console.WriteLine("Supports VR? (1 or 0): ");
-                    val[13] = "false";
+                    Console.WriteLine("Supports VR? (true or false): ");
+                    if (bool.TryParse(inbetween = Console.ReadLine(), out vr))
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hurrah! \n \n");
+                        val[13] = inbetween;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Incorrect Value sending you back to menu. \n \n");
+                    }
+                    FilterMenu();
                     break;
 
-                case 15:
-                    Console.Clear();
-                    Console.WriteLine("Insert PlatformMac (1 or 0): ");
-                    val[14] = "false";
-                    break;
             }
         }
 
-        //Prints Sorting menu
+        /// <summary>
+        /// Prints sorting preferences menu.
+        /// </summary>
+
         public void SortBy()
         {
             Console.WriteLine("Selected methods: {0}, " + val[0], val[1], val[2],
