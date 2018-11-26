@@ -4,12 +4,32 @@ namespace LP2_P1
 {
     class Render
     {
+        /// <summary>
+        /// Initializes all of the required variables for this class.
+        /// </summary>
         public Render() { }
 
+        string inbetween;
+        int metacritic;
+        int age;
+        int recommendation;
+        bool controller;
+        bool windows;
+        bool linux;
+        bool mac;
+        bool sp;
+        bool mp;
+        bool mpCoop;
+        bool levelEditor;
+        bool vr;
         public string[] val = new string[] { " ", " ", " ", " ", " ", " ",
                                                   " ", " ", " ", " ", " ", " ",
-                                                                  " "," "," "};
-
+                                                                  " "," "};
+        /// <summary>
+        /// Renders and handles the Main Menu.
+        /// Central function for the UI interface.
+        /// </summary>
+        /// <returns></returns>
         public int MainMenu()
         {
             Console.WriteLine("Select search menthod: ");
@@ -43,7 +63,10 @@ namespace LP2_P1
             return input;
         }
         
-        //Prints Search menu
+        /// <summary>
+        /// Prints and handles the filter menu, allows the change of filters
+        /// for the specific search.
+        /// </summary>
         public void FilterMenu()
         {
 
@@ -56,7 +79,7 @@ namespace LP2_P1
                 "\n Coop Multiplayer: <{11,18}> Level Editor:     <{12,18}> " +
                 "VR:               <{13,18}>",
                               val[0], val[1], val[2], val[3], val[4], val[5], val[6],
-                              val[7], val[8], val[9], val[10], val[11], val[12], val[13], val[14]);
+                              val[7], val[8], val[9], val[10], val[11], val[12], val[13]);
 
             Console.WriteLine("\n \n \n Search by: ");
             Console.WriteLine("1: Name");
@@ -75,22 +98,10 @@ namespace LP2_P1
             Console.WriteLine("14: Has VR support");
             Console.WriteLine("0: Return");
 
-            string inbetween;
-            int metacritic;
-            int age;
-            int recommendation;
-            bool controller;
-            bool windows;
-            bool linux;
-            bool mac;
-            bool sp;
-            bool mp;
-            bool mpCoop;
-            bool levelEditor;
-            bool vr;
 
             int input = Convert.ToInt32(Console.ReadLine());
 
+            // Checks for input.
             switch (input)
             {
                 case 0:
@@ -125,7 +136,7 @@ namespace LP2_P1
                 case 3:
                     Console.Clear();
                     Console.WriteLine("Insert age: ");
-                    if (Int32.TryParse(inbetween = Console.ReadLine(), out age))
+                    if (Int32.TryParse(inbetween = Console.ReadLine(), out age) && age >= 0)
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
@@ -142,7 +153,8 @@ namespace LP2_P1
                 case 4:
                     Console.Clear();
                     Console.WriteLine("Insert metacritic score: ");
-                    if (Int32.TryParse(inbetween = Console.ReadLine(), out metacritic) && metacritic <= 100)
+                    if (Int32.TryParse(inbetween = Console.ReadLine(), out metacritic)
+                        && metacritic <= 100 && metacritic >= 0)
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
@@ -159,7 +171,8 @@ namespace LP2_P1
                 case 5:
                     Console.Clear();
                     Console.WriteLine("Insert recommendation count: ");
-                    if (Int32.TryParse(inbetween = Console.ReadLine(), out recommendation))
+                    if (Int32.TryParse(inbetween = Console.ReadLine(), out recommendation)
+                        && recommendation >= 0)
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
@@ -175,7 +188,7 @@ namespace LP2_P1
 
                 case 6:
                     Console.Clear();
-                    Console.WriteLine("Insert controller support (1 or 0): ");
+                    Console.WriteLine("Insert controller support (true or false): ");
                     if (bool.TryParse(inbetween = Console.ReadLine(), out controller))
                     {
                         Console.Clear();
@@ -192,7 +205,7 @@ namespace LP2_P1
 
                 case 7:
                     Console.Clear();
-                    Console.WriteLine("Has Windows support (1 or 0): ");
+                    Console.WriteLine("Has Windows support (true or false): ");
                     if (bool.TryParse(inbetween = Console.ReadLine(), out windows))
                     {
                         Console.Clear();
@@ -209,7 +222,7 @@ namespace LP2_P1
 
                 case 8:
                     Console.Clear();
-                    Console.WriteLine("Has Linux support (1 or 0): ");
+                    Console.WriteLine("Has Linux support (true or false): ");
                     if (bool.TryParse(inbetween = Console.ReadLine(), out linux))
                     {
                         Console.Clear();
@@ -226,7 +239,7 @@ namespace LP2_P1
 
                 case 9:
                     Console.Clear();
-                    Console.WriteLine("Has Mac support (1 or 0): ");
+                    Console.WriteLine("Has Mac support (true or false): ");
                     if (bool.TryParse(inbetween = Console.ReadLine(), out mac))
                     {
                         Console.Clear();
@@ -243,7 +256,7 @@ namespace LP2_P1
 
                 case 10:
                     Console.Clear();
-                    Console.WriteLine("Has singleplayer (1 or 0): ");
+                    Console.WriteLine("Has singleplayer (true or false): ");
                     if (bool.TryParse(inbetween = Console.ReadLine(), out sp))
                     {
                         Console.Clear();
@@ -260,7 +273,7 @@ namespace LP2_P1
 
                 case 11:
                     Console.Clear();
-                    Console.WriteLine("Has multiplayer (1 or 0): ");
+                    Console.WriteLine("Has multiplayer (true or false): ");
                     if (bool.TryParse(inbetween = Console.ReadLine(), out mp))
                     {
                         Console.Clear();
@@ -277,7 +290,7 @@ namespace LP2_P1
 
                 case 12:
                     Console.Clear();
-                    Console.WriteLine("Has multiplayer coop (1 or 0): ");
+                    Console.WriteLine("Has multiplayer coop (true or false): ");
                     if (bool.TryParse(inbetween = Console.ReadLine(), out mpCoop))
                     {
                         Console.Clear();
@@ -294,7 +307,7 @@ namespace LP2_P1
 
                 case 13:
                     Console.Clear();
-                    Console.WriteLine("Has level editor? (1 or 0): ");
+                    Console.WriteLine("Has level editor? (true or false): ");
                     if (bool.TryParse(inbetween = Console.ReadLine(), out levelEditor))
                     {
                         Console.Clear();
@@ -311,7 +324,7 @@ namespace LP2_P1
 
                 case 14:
                     Console.Clear();
-                    Console.WriteLine("Supports VR? (1 or 0): ");
+                    Console.WriteLine("Supports VR? (true or false): ");
                     if (bool.TryParse(inbetween = Console.ReadLine(), out vr))
                     {
                         Console.Clear();
@@ -329,7 +342,10 @@ namespace LP2_P1
             }
         }
 
-        //Prints Sorting menu
+        /// <summary>
+        /// Prints sorting preferences menu.
+        /// </summary>
+
         public void SortBy()
         {
             Console.WriteLine("Selected methods: {0}, " + val[0], val[1], val[2],
