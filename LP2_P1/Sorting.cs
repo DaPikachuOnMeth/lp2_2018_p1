@@ -9,8 +9,21 @@ namespace LP2_P1
     class Sorting
     {
         public Render render = new Render();
-        public void BeginSorting()
+
+        public List<Games> gameList;
+
+        public Sorting(List<Games> gameList, Render rnd)
         {
+            this.gameList = gameList;
+            this.render = rnd;
         }
+
+        //This shit right here gets thestuff and organizes it
+
+        public void Sorter()
+        {
+            string[] valLib = render.val;
+        }
+
     }
 }
