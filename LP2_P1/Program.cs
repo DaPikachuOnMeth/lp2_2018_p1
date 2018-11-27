@@ -10,11 +10,13 @@ namespace LP2_P1
     {
         static void Main(string[] args)
         {
+            //string path = args[0];
             string path = "games.csv";
             FileManager File = new FileManager(path);
             Library lib = new Library(File);
             Render render = new Render();
-            render.MainMenu();
+            Sorting sorter = new Sorting(lib.gamesList, render);
+            sorter.MenuStart();
         }
     }
 }
