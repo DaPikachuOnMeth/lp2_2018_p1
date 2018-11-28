@@ -32,6 +32,13 @@ namespace LP2_P1
             return lib;
         }
 
+        internal List<Games> MakeList(Dictionary<int, Games> dictio)
+        {
+            List<Games> list = new List<Games>();
+            list = dictio.Values.ToList(); //generate one list with all Game objects inside this Dictionary
+            return list;
+        }
+
         List<Games> Search(Dictionary<int, Games> lib)
         {
             Dictionary<int, Games> Search = new Dictionary<int, Games>();

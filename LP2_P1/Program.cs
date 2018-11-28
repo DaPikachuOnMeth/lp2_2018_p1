@@ -15,7 +15,7 @@ namespace LP2_P1
             FileManager File = new FileManager(path);
             Library lib = new Library(File);
             Render render = new Render();
-            Sorting sorter = new Sorting(lib.gamesList, render);
+            Sorting sorter = new Sorting(lib.MakeList(lib.games),render);
             sorter.MenuStart();
         }
     }

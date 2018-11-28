@@ -29,6 +29,7 @@ namespace LP2_P1
                     render.SortBy();
                 else if(i == 3)
                 {
+                    Filter();
                     foreach(Games p in gameList)
                     {
                         p.PrintInfo();
