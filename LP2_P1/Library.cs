@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace LP2_P1
 {
+    /// <summary>
+    /// Handles the creation of lists and dictionarys.
+    /// </summary>
     class Library
     {
         internal Dictionary<int, Games> games;

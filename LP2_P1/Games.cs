@@ -5,6 +5,9 @@ using System.Text;
 
 namespace LP2_P1
 {
+    /// <summary>
+    /// Class which stores all of the info of the games.
+    /// </summary>
     class Games
     {
         internal int ID { get; }

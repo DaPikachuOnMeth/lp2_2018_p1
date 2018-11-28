@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace LP2_P1
 {
+    /// <summary>
+    /// Handles the sorting filtering and also handles some of the program
+    /// function calling.
+    /// </summary>
     class Sorting
     {
         internal Render render = new Render();

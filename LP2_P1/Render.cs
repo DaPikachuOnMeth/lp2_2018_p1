@@ -2,6 +2,9 @@
 
 namespace LP2_P1
 {
+    /// <summary>
+    /// Renders and handles most of the menus.
+    /// </summary>
     class Render
     {
         /// <summary>
