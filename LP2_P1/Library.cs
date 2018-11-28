@@ -14,7 +14,11 @@ namespace LP2_P1
             this.file = file;
             games = CreateDictionary(file.list);
         }
-
+        /// <summary>
+        /// Returns a dictionary.
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
         internal Dictionary<int, Games> CreateDictionary(string[] list)
         {
             Dictionary<int, Games> lib = new Dictionary<int, Games>();
@@ -31,11 +35,15 @@ namespace LP2_P1
             }
             return lib;
         }
-
+        /// <summary>
+        /// Handles the list creation.
+        /// </summary>
+        /// <param name="dictio"></param>
+        /// <returns></returns>
         internal List<Games> MakeList(Dictionary<int, Games> dictio)
         {
             List<Games> list = new List<Games>();
-            list = dictio.Values.ToList(); //generate one list with all Game objects inside this Dictionary
+            list = dictio.Values.ToList();
             return list;
         }
 

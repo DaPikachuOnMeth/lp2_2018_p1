@@ -12,11 +12,19 @@ namespace LP2_P1
 
         internal List<Games> gameList;
 
+        /// <summary>
+        /// Constructor to give the class sorting its necessary variables.
+        /// </summary>
+        /// <param name="gameList"></param>
+        /// <param name="rnd"></param>
         internal Sorting(List<Games> gameList, Render rnd)
         {
             this.gameList = gameList;
             this.render = rnd;
         }
+        /// <summary>
+        /// Handles menu info and calling the specific functions.
+        /// </summary>
 
         internal void MenuStart()
         {
