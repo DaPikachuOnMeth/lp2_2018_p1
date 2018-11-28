@@ -5,6 +5,9 @@ using System.Text;
 
 namespace LP2_P1
 {
+    /// <summary>
+    /// Class which stores all of the info of the games.
+    /// </summary>
     class Games
     {
         internal int ID { get; }
@@ -33,6 +36,10 @@ namespace LP2_P1
         private Uri HeaderImage;
         private Uri Website;
 
+        /// <summary>
+        /// Initializes and translates all variables.
+        /// </summary>
+        /// <param name="s"></param>
         internal Games(string[] s)
         {
             ID = Convert.ToInt32(s[0]);
@@ -62,7 +69,11 @@ namespace LP2_P1
             Website = PickedURL(s[24]);
         }
 
-        //Check if link is valid
+        /// <summary>
+        /// Checks if the URL is valid.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         internal Uri ShowULR(string str)
         {
             Uri url;
@@ -84,7 +95,11 @@ namespace LP2_P1
             }
         }
 
-        //Check if date is valid
+        /// <summary>
+        /// Checks if the date is valid.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         internal DateTime ReleaseDate(string str)
         {
             DateTime dateTime;
@@ -106,7 +121,6 @@ namespace LP2_P1
             }
         }
 
-        //Check if date is valid
         internal Uri PickedURL(string str)
         {
             Uri url;
@@ -151,7 +165,9 @@ namespace LP2_P1
             return this.Name;
         }
 
-
+        /// <summary>
+        /// Prints all info the object holds.
+        /// </summary>
         internal void PrintInfo()
         {
             Console.WriteLine("id: " + ID);

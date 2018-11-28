@@ -3,6 +3,9 @@ using System;
 
 namespace LP2_P1
 {
+    /// <summary>
+    /// Handles reading the file.
+    /// </summary>
     class FileManager
     {
         string path;

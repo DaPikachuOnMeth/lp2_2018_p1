@@ -2,6 +2,9 @@
 
 namespace LP2_P1
 {
+    /// <summary>
+    /// Renders and handles most of the menus.
+    /// </summary>
     class Render
     {
         /// <summary>
@@ -20,15 +23,14 @@ namespace LP2_P1
         internal string[] val2 = new string[] { "ID.", " ", " ", " ", " ", " ",
                                                   " ", " ", " "};
         /// <summary>
-        /// Renders and handles the Main Menu.
-        /// Central function for the UI interface.
+        /// Returns info to sorting to know what menu to do next.
         /// </summary>
         /// <returns></returns>
         internal int MainMenu()
         {
             Console.WriteLine("Select search menthod: ");
             Console.WriteLine("0: Exit");
-            Console.WriteLine("1: Search by:");
+            Console.WriteLine("1: Filters:");
             Console.WriteLine("2: Sort by:");
             Console.WriteLine("3: Search");
 
@@ -333,7 +335,7 @@ namespace LP2_P1
         }
 
         /// <summary>
-        /// Prints sorting preferences menu.
+        /// Prints and handles the sorting menu.
         /// </summary>
 
         internal void SortBy()
@@ -430,7 +432,9 @@ namespace LP2_P1
             }
         }
 
-        //Prints Search menu
+        /// <summary>
+        /// Prints and handles the search menu.
+        /// </summary>
         internal void Search()
         {
             Console.WriteLine("Search by: ");

@@ -6,17 +6,29 @@ using System.Threading.Tasks;
 
 namespace LP2_P1
 {
+    /// <summary>
+    /// Handles the sorting filtering and also handles some of the program
+    /// function calling.
+    /// </summary>
     class Sorting
     {
         internal Render render = new Render();
 
         internal List<Games> gameList;
 
+        /// <summary>
+        /// Constructor to give the class sorting its necessary variables.
+        /// </summary>
+        /// <param name="gameList"></param>
+        /// <param name="rnd"></param>
         internal Sorting(List<Games> gameList, Render rnd)
         {
             this.gameList = gameList;
             this.render = rnd;
         }
+        /// <summary>
+        /// Handles menu info and calling the specific functions.
+        /// </summary>
 
        // Updated upstream
         internal void MenuStart()
@@ -30,6 +42,7 @@ namespace LP2_P1
                     render.SortBy();
                 else if(i == 3)
                 {
+                    Filter();
                     foreach(Games p in gameList)
                     {
                         p.PrintInfo();
