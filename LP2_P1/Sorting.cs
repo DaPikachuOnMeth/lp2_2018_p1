@@ -18,6 +18,7 @@ namespace LP2_P1
             this.render = rnd;
         }
 
+       // Updated upstream
         internal void MenuStart()
         {
             for(int i = 1; i >= 1;)
@@ -42,9 +43,13 @@ namespace LP2_P1
         /// Sorts the lists according to paramenters taken from renderer.
         /// Specificly uses val2 array of strings.
         /// </summary>
+=======
+        //Apperantly it only gets info from the render array, oops
+>>>>>>> Stashed changes
 
         internal void Sorter()
         {
+<<<<<<< Updated upstream
             string[] valLib = render.val2;
 
             for (int x = 0; x < valLib.Length; x++)
@@ -107,6 +112,11 @@ namespace LP2_P1
                         break;
                 }
             }
+=======
+            string[] valLib = render.val;
+
+
+>>>>>>> Stashed changes
         }
 
         /// <summary>
