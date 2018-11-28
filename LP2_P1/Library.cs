@@ -6,16 +6,16 @@ namespace LP2_P1
 {
     class Library
     {
-        public Dictionary<int, Games> games;
-        public FileManager file;
+        internal Dictionary<int, Games> games;
+        internal FileManager file;
         public List<Games> gamesList = new List<Games>() ;
-        public Library(FileManager file)
+        internal Library(FileManager file)
         {
             this.file = file;
             games = CreateDictionary(file.list);
         }
 
-        public Dictionary<int, Games> CreateDictionary(string[] list)
+        internal Dictionary<int, Games> CreateDictionary(string[] list)
         {
             Dictionary<int, Games> lib = new Dictionary<int, Games>();
             

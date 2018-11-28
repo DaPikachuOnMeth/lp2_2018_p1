@@ -7,33 +7,33 @@ namespace LP2_P1
 {
     class Games
     {
-        private int ID;
-        private string Name;
-        private DateTime releaseDate;
-        private int RequiredAge;
-        private int DLCCount;
-        private int Metacritic;
+        internal int ID { get; }
+        internal string Name { get; }
+        internal DateTime releaseDate { get; }
+        internal int RequiredAge { get; }
+        internal int DLCCount { get; }
+        internal int Metacritic { get; }
         private int MovieCount;
-        private int RecommendationCount;
+        internal int RecommendationCount { get; }
         private int ScreenshotCount;
-        private int Owners;
-        private int NumberOfPlayers;
-        private int AchievementCount;
-        private bool ControllerSupport;
-        private bool PlatformWindows;
-        private bool PlatformLinux;
-        private bool PlatformMac;
-        private bool CategorySinglePlayer;
-        private bool CategoryMultiplayer;
-        private bool CategoryCoop;
-        private bool CategoryIncludeLevelEditor;
-        private bool CategoryVRSupport;
+        internal int Owners { get; }
+        internal int NumberOfPlayers { get; }
+        internal int AchievementCount { get; }
+        internal bool ControllerSupport { get; }
+        internal bool PlatformWindows { get; }
+        internal bool PlatformLinux { get; }
+        internal bool PlatformMac { get; }
+        internal bool CategorySinglePlayer { get; }
+        internal bool CategoryMultiplayer { get; }
+        internal bool CategoryCoop { get; }
+        internal bool CategoryIncludeLevelEditor { get; }
+        internal bool CategoryVRSupport { get; }
         private Uri SupportURL;
         private string AboutText;
         private Uri HeaderImage;
         private Uri Website;
 
-        public Games(string[] s)
+        internal Games(string[] s)
         {
             ID = Convert.ToInt32(s[0]);
             Name = s[1];
@@ -63,7 +63,7 @@ namespace LP2_P1
         }
 
         //Check if link is valid
-        public Uri ShowULR(string str)
+        internal Uri ShowULR(string str)
         {
             Uri url;
 
@@ -85,7 +85,7 @@ namespace LP2_P1
         }
 
         //Check if date is valid
-        public DateTime ReleaseDate(string str)
+        internal DateTime ReleaseDate(string str)
         {
             DateTime dateTime;
             if (str == "none" || str == " ")
@@ -107,7 +107,7 @@ namespace LP2_P1
         }
 
         //Check if date is valid
-        public Uri PickedURL(string str)
+        internal Uri PickedURL(string str)
         {
             Uri url;
             if (str == "none" || str == " ") 
@@ -127,7 +127,7 @@ namespace LP2_P1
             }
         }
 
-        public string PrintURL(Uri url)
+        internal string PrintURL(Uri url)
         {
             string s;
             if (url == null)
@@ -141,17 +141,18 @@ namespace LP2_P1
             return s;
         }
 
-        public int GetID()
+        internal int GetID()
         {
             return this.ID;
         }
 
-        public string GetName()
+        internal string GetName()
         {
             return this.Name;
         }
 
-        public void PrintInfo()
+
+        internal void PrintInfo()
         {
             Console.WriteLine("id: " + ID);
             Console.WriteLine("Name: " + Name);
@@ -181,17 +182,17 @@ namespace LP2_P1
         }
 
         /*
-        public static int CompareById(Games game1, Games game2)
+        internal static int CompareById(Games game1, Games game2)
         {
             return game1.ID.CompareTo(game2.ID);
         }
 
-        public static int CompareByName(Games game1, Games game2)
+        internal static int CompareByName(Games game1, Games game2)
         {
             return string.Compare(game1.Name, game2.Name);
         }
 
-        public static int CompareByDLC(Games game1, Games game2)
+        internal static int CompareByDLC(Games game1, Games game2)
         {
 
         }

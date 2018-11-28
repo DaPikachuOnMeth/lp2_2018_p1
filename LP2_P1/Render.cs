@@ -7,30 +7,24 @@ namespace LP2_P1
         /// <summary>
         /// Initializes all of the required variables for this class.
         /// </summary>
-        public Render() { }
+        internal Render() { }
 
-        string inbetween;
-        int metacritic;
-        int age;
-        int recommendation;
-        bool controller;
-        bool windows;
-        bool linux;
-        bool mac;
-        bool sp;
-        bool mp;
-        bool mpCoop;
-        bool levelEditor;
-        bool vr;
-        public string[] val = new string[] { " ", " ", " ", " ", " ", " ",
+        DateTime tempdate;
+        string tempstring;
+        int tempint;
+        bool tempbool;
+
+        internal string[] val1 = new string[] { " ", " ", " ", " ", " ", " ",
                                                   " ", " ", " ", " ", " ", " ",
                                                                   " "," "};
+        internal string[] val2 = new string[] { "ID.", " ", " ", " ", " ", " ",
+                                                  " ", " ", " "};
         /// <summary>
         /// Renders and handles the Main Menu.
         /// Central function for the UI interface.
         /// </summary>
         /// <returns></returns>
-        public int MainMenu()
+        internal int MainMenu()
         {
             Console.WriteLine("Select search menthod: ");
             Console.WriteLine("0: Exit");
@@ -48,16 +42,13 @@ namespace LP2_P1
                     break;
 
                 case 1:
-                    FilterMenu();
-                    break;
+                    return 1;
 
                 case 2:
-                    SortBy();
-                    break;
+                    return 2;
 
                 case 3:
-                    Search();
-                    break;
+                    return 3;
             }
 
             return input;
@@ -67,7 +58,7 @@ namespace LP2_P1
         /// Prints and handles the filter menu, allows the change of filters
         /// for the specific search.
         /// </summary>
-        public void FilterMenu()
+        internal void FilterMenu()
         {
 
             Console.WriteLine("Selected methods: \n Name:             <{0,18}> " +
@@ -78,10 +69,10 @@ namespace LP2_P1
                 "Singleplayer:     <{9,18}> Multiplayer:      <{10,18}>" +
                 "\n Coop Multiplayer: <{11,18}> Level Editor:     <{12,18}> " +
                 "VR:               <{13,18}>",
-                              val[0], val[1], val[2], val[3], val[4], val[5], val[6],
-                              val[7], val[8], val[9], val[10], val[11], val[12], val[13]);
+                              val1[0], val1[1], val1[2], val1[3], val1[4], val1[5], val1[6],
+                              val1[7], val1[8], val1[9], val1[10], val1[11], val1[12], val1[13]);
 
-            Console.WriteLine("\n \n \n Search by: ");
+            Console.WriteLine("\n \n \n Filter by: ");
             Console.WriteLine("1: Name");
             Console.WriteLine("2: Release date");
             Console.WriteLine("3: Age");
@@ -112,19 +103,18 @@ namespace LP2_P1
                 case 1:
                     Console.Clear();
                     Console.WriteLine("Insert name: ");
-                    val[0] = Console.ReadLine();
+                    val1[0] = Console.ReadLine();
                     FilterMenu();
                     break;
 
                 case 2:
                     Console.Clear();
                     Console.WriteLine("Insert release date (Please use formating YYYY-MM-DD) : ");
-                    DateTime releaseDate;
-                    if(DateTime.TryParse(inbetween = Console.ReadLine(), out releaseDate))
+                    if(DateTime.TryParse(tempstring = Console.ReadLine(), out tempdate))
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
-                        val[1] = inbetween;
+                        val1[1] = tempstring;
                     } else
                     {
                         Console.Clear();
@@ -136,11 +126,11 @@ namespace LP2_P1
                 case 3:
                     Console.Clear();
                     Console.WriteLine("Insert age: ");
-                    if (Int32.TryParse(inbetween = Console.ReadLine(), out age) && age >= 0)
+                    if (Int32.TryParse(tempstring = Console.ReadLine(), out tempint) && tempint >= 0)
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
-                        val[2] = inbetween;
+                        val1[2] = tempstring;
                     }
                     else
                     {
@@ -153,12 +143,12 @@ namespace LP2_P1
                 case 4:
                     Console.Clear();
                     Console.WriteLine("Insert metacritic score: ");
-                    if (Int32.TryParse(inbetween = Console.ReadLine(), out metacritic)
-                        && metacritic <= 100 && metacritic >= 0)
+                    if (Int32.TryParse(tempstring = Console.ReadLine(), out tempint)
+                        && tempint <= 100 && tempint >= 0)
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
-                        val[3] = inbetween;
+                        val1[3] = tempstring;
                     }
                     else
                     {
@@ -171,12 +161,12 @@ namespace LP2_P1
                 case 5:
                     Console.Clear();
                     Console.WriteLine("Insert recommendation count: ");
-                    if (Int32.TryParse(inbetween = Console.ReadLine(), out recommendation)
-                        && recommendation >= 0)
+                    if (Int32.TryParse(tempstring = Console.ReadLine(), out tempint)
+                        && tempint >= 0)
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
-                        val[4] = inbetween;
+                        val1[4] = tempstring;
                     }
                     else
                     {
@@ -189,11 +179,11 @@ namespace LP2_P1
                 case 6:
                     Console.Clear();
                     Console.WriteLine("Insert controller support (true or false): ");
-                    if (bool.TryParse(inbetween = Console.ReadLine(), out controller))
+                    if (bool.TryParse(tempstring = Console.ReadLine(), out tempbool))
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
-                        val[5] = inbetween;
+                        val1[5] = tempstring;
                     }
                     else
                     {
@@ -206,11 +196,11 @@ namespace LP2_P1
                 case 7:
                     Console.Clear();
                     Console.WriteLine("Has Windows support (true or false): ");
-                    if (bool.TryParse(inbetween = Console.ReadLine(), out windows))
+                    if (bool.TryParse(tempstring = Console.ReadLine(), out tempbool))
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
-                        val[6] = inbetween;
+                        val1[6] = tempstring;
                     }
                     else
                     {
@@ -223,11 +213,11 @@ namespace LP2_P1
                 case 8:
                     Console.Clear();
                     Console.WriteLine("Has Linux support (true or false): ");
-                    if (bool.TryParse(inbetween = Console.ReadLine(), out linux))
+                    if (bool.TryParse(tempstring = Console.ReadLine(), out tempbool))
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
-                        val[7] = inbetween;
+                        val1[7] = tempstring;
                     }
                     else
                     {
@@ -240,11 +230,11 @@ namespace LP2_P1
                 case 9:
                     Console.Clear();
                     Console.WriteLine("Has Mac support (true or false): ");
-                    if (bool.TryParse(inbetween = Console.ReadLine(), out mac))
+                    if (bool.TryParse(tempstring = Console.ReadLine(), out tempbool))
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
-                        val[8] = inbetween;
+                        val1[8] = tempstring;
                     }
                     else
                     {
@@ -257,11 +247,11 @@ namespace LP2_P1
                 case 10:
                     Console.Clear();
                     Console.WriteLine("Has singleplayer (true or false): ");
-                    if (bool.TryParse(inbetween = Console.ReadLine(), out sp))
+                    if (bool.TryParse(tempstring = Console.ReadLine(), out tempbool))
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
-                        val[9] = inbetween;
+                        val1[9] = tempstring;
                     }
                     else
                     {
@@ -274,11 +264,11 @@ namespace LP2_P1
                 case 11:
                     Console.Clear();
                     Console.WriteLine("Has multiplayer (true or false): ");
-                    if (bool.TryParse(inbetween = Console.ReadLine(), out mp))
+                    if (bool.TryParse(tempstring = Console.ReadLine(), out tempbool))
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
-                        val[10] = inbetween;
+                        val1[10] = tempstring;
                     }
                     else
                     {
@@ -291,11 +281,11 @@ namespace LP2_P1
                 case 12:
                     Console.Clear();
                     Console.WriteLine("Has multiplayer coop (true or false): ");
-                    if (bool.TryParse(inbetween = Console.ReadLine(), out mpCoop))
+                    if (bool.TryParse(tempstring = Console.ReadLine(), out tempbool))
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
-                        val[11] = inbetween;
+                        val1[11] = tempstring;
                     }
                     else
                     {
@@ -308,11 +298,11 @@ namespace LP2_P1
                 case 13:
                     Console.Clear();
                     Console.WriteLine("Has level editor? (true or false): ");
-                    if (bool.TryParse(inbetween = Console.ReadLine(), out levelEditor))
+                    if (bool.TryParse(tempstring = Console.ReadLine(), out tempbool))
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
-                        val[12] = inbetween;
+                        val1[12] = tempstring;
                     }
                     else
                     {
@@ -325,11 +315,11 @@ namespace LP2_P1
                 case 14:
                     Console.Clear();
                     Console.WriteLine("Supports VR? (true or false): ");
-                    if (bool.TryParse(inbetween = Console.ReadLine(), out vr))
+                    if (bool.TryParse(tempstring = Console.ReadLine(), out tempbool))
                     {
                         Console.Clear();
                         Console.WriteLine("Hurrah! \n \n");
-                        val[13] = inbetween;
+                        val1[13] = tempstring;
                     }
                     else
                     {
@@ -346,11 +336,10 @@ namespace LP2_P1
         /// Prints sorting preferences menu.
         /// </summary>
 
-        public void SortBy()
+        internal void SortBy()
         {
-            Console.WriteLine("Selected methods: {0}, " + val[0], val[1], val[2],
-                                  val[3], val[4], val[5], val[6], val[7], val[8],
-                                  val[9], val[10]);
+            Console.WriteLine("Selected sort method: " + val2[0] + val2[1] + val2[2] +
+                                  val2[3] + val2[4] + val2[5] + val2[6] + val2[7] + val2[8]);
 
             Console.WriteLine("Sort by: ");
             Console.WriteLine("1: ID");
@@ -362,14 +351,12 @@ namespace LP2_P1
             Console.WriteLine("7: Nº of owner");
             Console.WriteLine("8: Player count");
             Console.WriteLine("9: Achievment count");
-            Console.WriteLine("10: Clear");
-            Console.WriteLine("11: Results");
             Console.WriteLine("0: Return");
 
 
             int input = Convert.ToInt32(Console.ReadLine());
 
-            
+
 
             switch (input)
             {
@@ -380,86 +367,71 @@ namespace LP2_P1
 
                 case 1:
                     Console.Clear();
-                    Console.WriteLine("By ID: ");
-                    val[0] = Console.ReadLine();
+                    Array.Clear(val2, 0, val2.Length);
+                    val2[0] = "ID.";
                     SortBy();
                     break;
 
                 case 2:
                     Console.Clear();
-                    Console.WriteLine("By Name: ");
-                    val[1] = Console.ReadLine();
+                    Array.Clear(val2, 0, val2.Length);
+                    val2[1] = "Name.";
                     SortBy();
                     break;
 
                 case 3:
                     Console.Clear();
-                    Console.WriteLine("By release date: ");
-                    val[2] = Console.ReadLine();
+                    Array.Clear(val2, 0, val2.Length);
+                    val2[2] = "Release Date.";
                     SortBy();
                     break;
 
                 case 4:
                     Console.Clear();
-                    Console.WriteLine("By Metacritic score: ");
-                    val[3] = Console.ReadLine();
+                    Array.Clear(val2, 0, val2.Length);
+                    val2[3] = "Metacritic Score.";
                     SortBy();
                     break;
 
                 case 5:
                     Console.Clear();
-                    Console.WriteLine("By DLC count: ");
-                    val[4] = Console.ReadLine();
+                    Array.Clear(val2, 0, val2.Length);
+                    val2[4] = "DLC.";
                     SortBy();
                     break;
 
                 case 6:
                     Console.Clear();
-                    Console.WriteLine("By recommendation count: ");
-                    val[5] = Console.ReadLine();
+                    Array.Clear(val2, 0, val2.Length);
+                    val2[5] = "Recommendations.";
                     SortBy();
                     break;
 
                 case 7:
                     Console.Clear();
-                    Console.WriteLine("By nº of players: ");
-                    val[6] = Console.ReadLine();
+                    Array.Clear(val2, 0, val2.Length);
+                    val2[6] = "Nº of Owners.";
                     SortBy();
                     break;
 
                 case 8:
                     Console.Clear();
-                    Console.WriteLine("By player count: ");
-                    val[7] = Console.ReadLine();
+                    Array.Clear(val2, 0, val2.Length);
+                    val2[7] = "Player Count.";
                     SortBy();
                     break;
 
                 case 9:
                     Console.Clear();
-                    Console.WriteLine("By achievment count: ");
-                    val[8] = Console.ReadLine();
-                    SortBy();
-                    break;
-
-                case 10:
-                    Console.Clear();
-                    Console.WriteLine("Clear");
-                    val[9] = Console.ReadLine();
-                    Array.Clear(val, 0, val.Length);
-                    SortBy();
-                    break;
-
-                case 11:
-                    Console.Clear();
-                    Console.WriteLine("Big search");
-                    val[10] = Console.ReadLine();
+                    Array.Clear(val2, 0, val2.Length);
+                    val2[8] = "Achievement Count.";
                     SortBy();
                     break;
             }
         }
 
         //Prints Search menu
-        public void Search()
+        internal void Search()
         {
             Console.WriteLine("Search by: ");
             Console.WriteLine("1: ID");
@@ -487,55 +459,55 @@ namespace LP2_P1
                 case 1:
                     Console.Clear();
                     Console.WriteLine("By ID: ");
-                    str[1] = Console.ReadLine();
+                    str[0] = Console.ReadLine();
                     break;
 
                 case 2:
                     Console.Clear();
                     Console.WriteLine("By Name: ");
-                    str[2] = Console.ReadLine();
+                    str[1] = Console.ReadLine();
                     break;
 
                 case 3:
                     Console.Clear();
                     Console.WriteLine("By release date: ");
-                    str[3] = Console.ReadLine();
+                    str[2] = Console.ReadLine();
                     break;
 
                 case 4:
                     Console.Clear();
                     Console.WriteLine("By Metacritic score: ");
-                    str[4] = Console.ReadLine();
+                    str[3] = Console.ReadLine();
                     break;
 
                 case 5:
                     Console.Clear();
                     Console.WriteLine("By DLC count: ");
-                    str[5] = Console.ReadLine();
+                    str[4] = Console.ReadLine();
                     break;
 
                 case 6:
                     Console.Clear();
                     Console.WriteLine("By recommendation count: ");
-                    str[6] = Console.ReadLine();
+                    str[5] = Console.ReadLine();
                     break;
 
                 case 7:
                     Console.Clear();
                     Console.WriteLine("By nº of players: ");
-                    str[7] = Console.ReadLine();
+                    str[6] = Console.ReadLine();
                     break;
 
                 case 8:
                     Console.Clear();
                     Console.WriteLine("By player count: ");
-                    str[8] = Console.ReadLine();
+                    str[7] = Console.ReadLine();
                     break;
 
                 case 9:
                     Console.Clear();
                     Console.WriteLine("By achievment count: ");
-                    str[9] = Console.ReadLine();
+                    str[8] = Console.ReadLine();
                     break;
             }
         }
